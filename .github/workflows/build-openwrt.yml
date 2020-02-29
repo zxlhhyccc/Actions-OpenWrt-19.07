@@ -61,12 +61,6 @@ jobs:
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
 
-    - name: Restart Update feeds
-      run: cd openwrt && rm -rf tmp &&./scripts/feeds update -a
-
-    - name: Restart Install feeds
-      run: cd openwrt && ./scripts/feeds install -a
-
     - name: Load custom configuration
       run: |
         [ -e files ] && mv files openwrt/files
@@ -74,6 +68,12 @@ jobs:
         chmod +x $DIY_SH
         cd openwrt
         ../$DIY_SH
+        
+    - name: Restart Update Install feeds
+      run: |
+           cd openwrt
+           rm -rf tmp
+            ./scripts/feeds update -a && ./scripts/feeds install -a
 
     - name: SSH connection to Actions
       uses: P3TERX/debugger-action@master
