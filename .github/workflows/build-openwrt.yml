@@ -58,7 +58,7 @@ jobs:
     - name: 自定义插件
       run: |
         cd openwrt
-        git clone  https://github.com/Sweet-Fairy/openwrt-package
+        git clone  https://github.com/zxlhhyccc/bf-package.git package/openwrt-package
        
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
