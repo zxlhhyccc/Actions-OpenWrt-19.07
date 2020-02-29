@@ -17,23 +17,23 @@ wget -P target/linux/generic/hack-4.14/ https://raw.githubusercontent.com/zxlhhy
 wget -P target/linux/generic/hack-4.14/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/target-linux-generic/hack-4.14/953-use-nf_ct_helper_log.patch
 svn co https://github.com/zxlhhyccc/acc-imq/trunk/tools/ucl tools/ucl
 svn co https://github.com/zxlhhyccc/acc-imq/trunk/tools/upx tools/upx
-rm -rf tools/Makefile
-wget -P tools/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/tools/Makefile tools/
-rm -rf target/linux/generic/config-4.14
-wget -P target/linux/generic/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/target-linux-generic/config-4.14
-rm -rf target/linux/x86/Makefile
-wget -P target/linux/x86/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/x86/Makefile
-rm -rf package/network/config/firewall
+rm -f ./tools/Makefile
+wget -P ./tools https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/tools/Makefile
+rm -f ./target/linux/generic/config-4.14
+wget -P ./target/linux/generic https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/target-linux-generic/config-4.14
+rm -f ./target/linux/x86/Makefile
+wget -P ./target/linux/x86 https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/x86/Makefile
+rm -rf ./package/network/config/firewall
 svn co https://github.com/zxlhhyccc/acc-imq/trunk/19.07/firewall package/network/config/firewall
-rm -rf package/network/utils/iptables
+rm -rf ./package/network/utils/iptables
 svn co https://github.com/zxlhhyccc/acc-imq/trunk/19.07/iptables package/network/utils/iptables
-rm -rf package/network/services/uhttpd
+rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq/trunk/19.07/uhttpd package/network/services/uhttpd
-rm -rf include/target.mk
-wget -P include/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/include/target.mk
-rm -rf include/netfilter.mk
-wget -P include/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/include//netfilter.mk
-rm -rf package/kernel/linux/modules/netdevices.mk
-wget -P package/kernel/linux/modules/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/package-kernel-linux-modules/netdevices.mk
-rm -rf package/kernel/linux/modules/netfilter.mk
-wget -P package/kernel/linux/modules/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/package-kernel-linux-modules/netfilter.mk
+rm -f ./include/target.mk
+wget -P ./include https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/include/target.mk
+rm -f ./include/netfilter.mk
+wget -P ./include https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/include//netfilter.mk
+rm -f ./package/kernel/linux/modules/netdevices.mk
+wget -P ./package/kernel/linux/modules https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/package-kernel-linux-modules/netdevices.mk
+rm -f ./package/kernel/linux/modules/netfilter.mk
+wget -P ./package/kernel/linux/modules https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/package-kernel-linux-modules/netfilter.mk
