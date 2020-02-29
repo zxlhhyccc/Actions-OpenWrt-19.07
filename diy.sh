@@ -15,20 +15,20 @@ wget -P target/linux/generic/hack-4.14/ https://raw.githubusercontent.com/zxlhhy
 wget -P target/linux/generic/hack-4.14/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/target-linux-generic/hack-4.14/645-netfilter-connmark-introduce-set-dscpmark.patch
 wget -P target/linux/generic/hack-4.14/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/target-linux-generic/hack-4.14/952-net-conntrack-events-support-multiple-registrant.patch
 wget -P target/linux/generic/hack-4.14/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/target-linux-generic/hack-4.14/953-use-nf_ct_helper_log.patch
-svn co https://github.com/zxlhhyccc/acc-imq/trunk/tools/ucl tools/
-svn co https://github.com/zxlhhyccc/acc-imq/trunk/tools/upx tools/
+svn co https://github.com/zxlhhyccc/acc-imq/trunk/tools/ucl tools/ucl
+svn co https://github.com/zxlhhyccc/acc-imq/trunk/tools/upx tools/upx
 rm -rf tools/Makefile
-wget -P tools/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/tools/Makefile
+wget -P tools/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/tools/Makefile tools/
 rm -rf target/linux/generic/config-4.14
 wget -P target/linux/generic/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/target-linux-generic/config-4.14
 rm -rf target/linux/x86/Makefile
 wget -P target/linux/x86/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/x86/Makefile
 rm -rf package/network/config/firewall
-svn co https://github.com/zxlhhyccc/acc-imq/trunk/19.07/firewall package/network/config/
+svn co https://github.com/zxlhhyccc/acc-imq/trunk/19.07/firewall package/network/config/firewall
 rm -rf package/network/utils/iptables
-svn co https://github.com/zxlhhyccc/acc-imq/trunk/19.07/iptables package/network/utils/
+svn co https://github.com/zxlhhyccc/acc-imq/trunk/19.07/iptables package/network/utils/iptables
 rm -rf package/network/services/uhttpd
-svn co https://github.com/zxlhhyccc/acc-imq/trunk/19.07/uhttpd package/network/services/
+svn co https://github.com/zxlhhyccc/acc-imq/trunk/19.07/uhttpd package/network/services/uhttpd
 rm -rf include/target.mk
 wget -P include/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/include/target.mk
 rm -rf include/netfilter.mk
