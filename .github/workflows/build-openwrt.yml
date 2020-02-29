@@ -54,7 +54,12 @@ jobs:
 
     - name: Clone source code
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
-        
+     
+    - name: 自定义插件
+      run: |
+        cd openwrt
+        git clone  https://github.com/Sweet-Fairy/openwrt-package
+       
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
 
