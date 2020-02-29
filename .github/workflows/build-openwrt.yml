@@ -54,10 +54,6 @@ jobs:
 
     - name: Clone source code
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
-     
-    - name: SSH connection to Actions
-      uses: P3TERX/debugger-action@master
-      if: env.SSH_ACTIONS == 'true'
       
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
@@ -72,7 +68,11 @@ jobs:
         chmod +x $DIY_SH
         cd openwrt
         ../$DIY_SH
-
+     
+    - name: SSH connection to Actions
+      uses: P3TERX/debugger-action@master
+      if: env.SSH_ACTIONS == 'true'
+      
     - name: Download package
       id: package
       run: |
