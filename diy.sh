@@ -30,7 +30,7 @@ rm -f ./package/kernel/mac80211/files/lib/wifi/mac80211.sh
 wget -P ./package/kernel/mac80211/files/lib/wifi/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/package/kernel/mac80211/files/lib/wifi/mac80211.sh
 # openssl升级为1.1.1e
 rm -rf ./package/libs/openssl
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/package/network/services/uhttpd package/package/libs/
+svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/package/network/services/uhttpd package/libs/
 # 修改network中防火墙等源码包
 rm -rf ./package/network/config/firewall
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/package/network/config/firewall package/network/config/
@@ -54,7 +54,7 @@ wget -P ./target/linux/x86/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/tools/ucl tools/ucl
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/tools/upx tools/upx
 rm -f ./tools/Makefile
-wget -P ./tools https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/tools/Makefile
+wget -P ./tools/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/tools/Makefile
 # 去除feeds中的material主题多余固件名
 rm -f ./feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
 wget -P ./feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
