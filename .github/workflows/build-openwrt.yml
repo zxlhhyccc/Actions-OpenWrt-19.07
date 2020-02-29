@@ -71,9 +71,9 @@ jobs:
         
     - name: Restart Update Install feeds
       run: |
-           cd openwrt
-           rm -rf tmp
-            ./scripts/feeds update -a && ./scripts/feeds install -a
+        cd openwrt
+        rm -rf tmp
+        ./scripts/feeds update -a && ./scripts/feeds install -a
 
     - name: SSH connection to Actions
       uses: P3TERX/debugger-action@master
