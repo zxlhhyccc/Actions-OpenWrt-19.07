@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 # Modify default IP
-# sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
 git clone https://github.com/zxlhhyccc/bf-package.git package/bf-package
 wget -P target/linux/generic/pending-4.14/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/target-linux-generic-pending/601-add-kernel-imq-support.patch
 wget -P target/linux/generic/pending-4.14/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/target-linux-generic-pending/607-tcp_bbr-adapt-cwnd-based-on-ack-aggregation-estimation.patch
