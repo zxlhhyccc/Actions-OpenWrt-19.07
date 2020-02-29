@@ -15,6 +15,10 @@ wget -P target/linux/generic/hack-4.14/ https://raw.githubusercontent.com/zxlhhy
 wget -P target/linux/generic/hack-4.14/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/target-linux-generic/hack-4.14/645-netfilter-connmark-introduce-set-dscpmark.patch
 wget -P target/linux/generic/hack-4.14/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/target-linux-generic/hack-4.14/952-net-conntrack-events-support-multiple-registrant.patch
 wget -P target/linux/generic/hack-4.14/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/target-linux-generic/hack-4.14/953-use-nf_ct_helper_log.patch
+svn co https://github.com/zxlhhyccc/acc-imq/tree/master/tools/ucl tools/
+svn co https://github.com/zxlhhyccc/acc-imq/tree/master/tools/upx tools/
+rm -rf /tools/Makefile
+wget -P tools/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/tools/Makefile
 rm -rf /target/linux/generic/config-4.14
 wget -P target/linux/generic/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/target-linux-generic/config-4.14
 rm -rf /target/linux/x86/Makefile
