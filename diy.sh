@@ -7,7 +7,12 @@
 #=================================================
 # Modify default IP
 # sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
-git clone https://github.com/zxlhhyccc/bf-package.git package/bf-package
+# 添加插件
+svn co https://github.com/zxlhhyccc/bf-package/trunk/ctcgfw package/ctcgfw
+svn co https://github.com/zxlhhyccc/bf-package/trunk/lean package/lean
+svn co https://github.com/zxlhhyccc/bf-package/trunk/lienol package/lienol
+svn co https://github.com/zxlhhyccc/bf-package/trunk/ntlf9t package/ntlf9t
+svn co https://github.com/zxlhhyccc/bf-package/trunk/zxlhhyccc package/zxlhhyccc
 # 添加默认编译包
 rm -f ./include/target.mk
 wget -P ./include/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/include/target.mk
