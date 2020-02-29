@@ -30,10 +30,16 @@ svn co https://github.com/zxlhhyccc/acc-imq/trunk/19.07/iptables package/network
 rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq/trunk/19.07/uhttpd package/network/services/uhttpd
 rm -f ./include/target.mk
-wget -P ./include https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/include/target.mk
+wget -P ./include/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/include/target.mk
 rm -f ./include/netfilter.mk
-wget -P ./include https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/include//netfilter.mk
+wget -P ./include/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/include//netfilter.mk
 rm -f ./package/kernel/linux/modules/netdevices.mk
-wget -P ./package/kernel/linux/modules https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/package-kernel-linux-modules/netdevices.mk
+wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/package-kernel-linux-modules/netdevices.mk
 rm -f ./package/kernel/linux/modules/netfilter.mk
-wget -P ./package/kernel/linux/modules https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/package-kernel-linux-modules/netfilter.mk
+wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/19.07/package-kernel-linux-modules/netfilter.mk
+rm -f ./package/base-files/files/bin/config_generate
+wget -P ./package/base-files/files/bin/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/bin/config_generate
+rm -f ./package/kernel/mac80211/files/lib/wifi/mac80211.sh
+wget -P ./package/kernel/mac80211/files/lib/wifi/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/mac80211/files/lib/wifi/mac80211.sh
+rm -f ./package/base-files/files/etc/shadow
+wget -P ./package/base-files/files/etc/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq/master/etc/shadow
