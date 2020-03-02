@@ -65,7 +65,7 @@ rm -f ./tools/Makefile
 wget -P ./tools/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/tools/Makefile
 # 将tty所在服务菜单改到系统菜单
 rm -f ./feeds/luci/applications/luci-app-ttyd/luasrc/controller/ttyd.lua
-wget -P ./feeds/https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/feeds/luci/applications/luci-app-ttyd/luasrc/controller/ttyd.lua
+wget -P ./feeds/luci/applications/luci-app-ttyd/luasrc/controller/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/feeds/luci/applications/luci-app-ttyd/luasrc/controller/ttyd.lua
 # 去除feeds中的material主题多余固件名
 rm -f ./feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
 wget -P ./feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
