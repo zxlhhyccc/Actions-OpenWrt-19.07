@@ -15,7 +15,7 @@ on:
     branches:
       - master
     paths:
-      - '.config'
+      - 'k3.config'
 #  schedule:
 #    - cron: 0 8 * * 5
   watch:
@@ -24,7 +24,7 @@ on:
 env:
   REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: openwrt-19.07
-  CONFIG_FILE: .config
+  CONFIG_FILE: k3.config
   DIY_SH: diy.sh
   SSH_ACTIONS: true
   UPLOAD_BIN_DIR: false
