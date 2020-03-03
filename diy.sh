@@ -71,5 +71,8 @@ rm -f ./feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header
 wget -P ./feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
 # 添加feeds里的依赖包
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/feeds/packages/lang/python/Flask-RESTful feeds/packages/lang/python/Flask-RESTful
+# 升级feeds中的exfat-nofuse源码
+rm -rf ./feeds/packages/kernel/exfat-nofuse
+svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
 # 删除feeds里的与已有的冲突源码包
 rm -rf ./feeds/packages/utils/syncthing
