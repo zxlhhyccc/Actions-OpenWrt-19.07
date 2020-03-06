@@ -74,6 +74,12 @@ svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/feeds/packages/lang/
 # 升级feeds中的exfat-nofuse源码
 rm -rf ./feeds/packages/kernel/exfat-nofuse
 svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
+# 添加feeds中的docker-ce源码及依赖
+svn co  https://github.com/openwrt/packages/trunk/utils/docker-ce feeds/packages/utils/docker-ce
+svn co  https://github.com/openwrt/packages/trunk/utils/containerd feeds/packages/utils/containerd
+svn co  https://github.com/openwrt/packages/trunk/utils/libnetwork feeds/packages/utils/libnetwork
+svn co  https://github.com/openwrt/packages/trunk/utils/runc feeds/packages/utils/runc
+svn co  https://github.com/openwrt/packages/trunk/utils/tini feeds/packages/utils/tini
 # 升级feeds中的node源码
 # rm -rf ./feeds/packages/lang/node
 # svn co  https://github.com/openwrt/packages/trunk/lang/node feeds/packages/lang/node
