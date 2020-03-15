@@ -22,8 +22,8 @@ on:
     types: started
 
 env:
-  REPO_URL: https://github.com/openwrt/openwrt
-  REPO_BRANCH: openwrt-19.07
+  REPO_URL: https://github.com/project-openwrt/openwrt-19.07.git
+  REPO_BRANCH: master
   CONFIG_FILE: k3.config
   DIY_SH: diy.sh
   SSH_ACTIONS: true
