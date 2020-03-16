@@ -90,3 +90,4 @@ svn co  https://github.com/openwrt/packages/trunk/utils/tini feeds/packages/util
 # 删除feeds里的与已有的冲突源码包
 rm -rf ./feeds/packages/utils/syncthing
 rm -rf ./feeds/luci/applications/luci-app-ksmbd
+rm -rf ./feeds/packages/libs/libcups
