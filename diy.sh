@@ -46,6 +46,9 @@ rm -rf ./package/network/utils/iptables
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/package/network/utils/iptables package/network/utils/iptables
 rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/package/network/services/uhttpd package/network/services/uhttpd
+# 添加procd的uajial补丁去除系统日志错误
+rm -rf ./package/system/procd
+svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/package/system/procd package/system/procd
 # 添加内核补丁
 wget -P target/linux/generic/pending-4.14/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/target/linux/generic/pending-4.14/601-add-kernel-imq-support.patch
 wget -P target/linux/generic/pending-4.14/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/target/linux/generic/pending-4.14/607-tcp_bbr-adapt-cwnd-based-on-ack-aggregation-estimation.patch
