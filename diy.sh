@@ -47,8 +47,8 @@ svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/package/network/util
 rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/package/network/services/uhttpd package/network/services/uhttpd
 # 添加procd的uajial补丁去除系统日志错误
-rm -rf ./package/system/procd
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/package/system/procd package/system/procd
+# rm -rf ./package/system/procd
+# svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/package/system/procd package/system/procd
 # 添加内核补丁
 wget -P target/linux/generic/pending-4.14/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/target/linux/generic/pending-4.14/601-add-kernel-imq-support.patch
 wget -P target/linux/generic/pending-4.14/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/target/linux/generic/pending-4.14/607-tcp_bbr-adapt-cwnd-based-on-ack-aggregation-estimation.patch
@@ -73,8 +73,8 @@ wget -P ./feeds/luci/applications/luci-app-ttyd/luasrc/controller/ https://raw.g
 rm -f ./feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
 wget -P ./feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
 # 修复无线错字、增加页面显示cpu使用率
-rm -rf ./feeds/luci/modules
-svn co  https://github.com/project-openwrt/luci-19.07/trunk/modules feeds/luci/modules
+# rm -rf ./feeds/luci/modules
+# svn co  https://github.com/project-openwrt/luci-19.07/trunk/modules feeds/luci/modules
 # 添加feeds里的依赖包
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/feeds/packages/lang/python/Flask-RESTful feeds/packages/lang/python/Flask-RESTful
 # 升级feeds中的exfat-nofuse源码
