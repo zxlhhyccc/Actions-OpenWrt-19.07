@@ -87,6 +87,9 @@ svn co  https://github.com/openwrt/packages/trunk/utils/cgroupfs-mount feeds/pac
 svn co  https://github.com/openwrt/packages/trunk/utils/libnetwork feeds/packages/utils/libnetwork
 svn co  https://github.com/openwrt/packages/trunk/utils/runc feeds/packages/utils/runc
 svn co  https://github.com/openwrt/packages/trunk/utils/tini feeds/packages/utils/tini
+# 添加feeds中的hplip依赖libcups改为cups
+rm -rf ./feeds/packages/utils/hplip/Makefile
+wget -P ./feeds/packages/utils/hplip/ https://raw.githubusercontent.com/project-openwrt/packages-19.07/master/utils/hplip/Makefile
 # 升级feeds中的node源码
 # rm -rf ./feeds/packages/lang/node
 # svn co  https://github.com/openwrt/packages/trunk/lang/node feeds/packages/lang/node
