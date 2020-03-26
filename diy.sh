@@ -92,6 +92,8 @@ rm -rf ./feeds/packages/net/ddns-scripts
 svn co  https://github.com/openwrt/packages/trunk/net/ddns-scripts feeds/packages/net/ddns-scripts
 rm -rf ./feeds/luci/applications/luci-app-ddns
 svn co  https://github.com/openwrt/luci/trunk/applications/luci-app-ddns feeds/luci/applications/luci-app-ddns
+rm -rf ./feeds/packages/libs/giflib
+svn co  https://github.com/openwrt/packages/trunk/libs/giflib feeds/packages/libs/giflib
 # 删除feeds里的与已有的冲突源码包
 rm -rf ./feeds/packages/utils/syncthing
 rm -rf ./feeds/luci/applications/luci-app-ksmbd
