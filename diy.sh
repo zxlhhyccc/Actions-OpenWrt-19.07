@@ -87,9 +87,11 @@ svn co  https://github.com/openwrt/packages/trunk/utils/tini feeds/packages/util
 # 添加feeds中的hplip依赖libcups改为cups
 rm -rf ./feeds/packages/utils/hplip/Makefile
 wget -P ./feeds/packages/utils/hplip/ https://raw.githubusercontent.com/project-openwrt/packages-19.07/master/utils/hplip/Makefile
-# 升级feeds中的node源码
-# rm -rf ./feeds/packages/lang/node
-# svn co  https://github.com/openwrt/packages/trunk/lang/node feeds/packages/lang/node
+# feeds中的ddns-scripts改为master的源码
+rm -rf ./feeds/packages/net/ddns-scripts
+svn co  https://github.com/openwrt/packages/trunk/net/ddns-scripts feeds/packages/net/ddns-scripts
+rm -rf ./feeds/luci/applications/luci-app-ddns
+svn co  https://github.com/openwrt/luci/trunk/applications/luci-app-ddns feeds/luci/applications/luci-app-ddns
 # 删除feeds里的与已有的冲突源码包
 rm -rf ./feeds/packages/utils/syncthing
 rm -rf ./feeds/luci/applications/luci-app-ksmbd
