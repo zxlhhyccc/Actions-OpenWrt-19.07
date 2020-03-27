@@ -69,9 +69,16 @@ wget -P ./feeds/luci/applications/luci-app-ttyd/luasrc/controller/ https://raw.g
 # 去除feeds中的material主题多余固件名
 rm -f ./feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
 wget -P ./feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
-# 修复无线错字、增加页面显示cpu使用率
-# rm -rf ./feeds/luci/modules
-# svn co  https://github.com/project-openwrt/luci-19.07/trunk/modules feeds/luci/modules
+# 防火墙添加FullCone NAT
+rm -f ./feeds/luci/applications/luci-app-firewall/htdocs/luci-static/resources/view/firewall/zones.js
+wget -P ./feeds/luci/applications/luci-app-firewall/htdocs/luci-static/resources/view/firewall/ https://raw.githubusercontent.com/project-openwrt/luci-19.07/master/applications/luci-app-firewall/htdocs/luci-static/resources/view/firewall/zones.js
+rm -f ./feeds/luci/applications/luci-app-firewall/po/zh_Hans/firewall.po
+wget -P ./feeds/luci/applications/luci-app-firewall/po/zh_Hans/ https://raw.githubusercontent.com/project-openwrt/luci-19.07/master/applications/luci-app-firewall/po/zh_Hans/firewall.po
+# 更新feeds中的transmission源码依赖
+rm -rf ./feeds/luci/applications/luci-app-transmission
+svn co  https://github.com/project-openwrt/luci-19.07/trunk/applications/luci-app-transmission feeds/luci/applications/luci-app-transmission
+rm -rf ./feeds/packages/net/transmission-web-control
+svn co  https://github.com/project-openwrt/packages-19.07/trunk/net/transmission-web-control feeds/packages/net/transmission-web-control
 # 添加feeds里的依赖包
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/feeds/packages/lang/python/Flask-RESTful feeds/packages/lang/python/Flask-RESTful
 # 升级feeds中的exfat-nofuse源码
@@ -87,13 +94,6 @@ svn co  https://github.com/openwrt/packages/trunk/utils/tini feeds/packages/util
 # 添加feeds中的hplip依赖libcups改为cups
 rm -rf ./feeds/packages/utils/hplip/Makefile
 wget -P ./feeds/packages/utils/hplip/ https://raw.githubusercontent.com/project-openwrt/packages-19.07/master/utils/hplip/Makefile
-# feeds中的ddns-scripts改为master的源码
-rm -rf ./feeds/packages/net/ddns-scripts
-svn co  https://github.com/openwrt/packages/trunk/net/ddns-scripts feeds/packages/net/ddns-scripts
-rm -rf ./feeds/luci/applications/luci-app-ddns
-svn co  https://github.com/openwrt/luci/trunk/applications/luci-app-ddns feeds/luci/applications/luci-app-ddns
-rm -rf ./feeds/packages/libs/giflib
-svn co  https://github.com/openwrt/packages/trunk/libs/giflib feeds/packages/libs/giflib
 # 删除feeds里的与已有的冲突源码包
 rm -rf ./feeds/packages/utils/syncthing
 rm -rf ./feeds/luci/applications/luci-app-ksmbd
