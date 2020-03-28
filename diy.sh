@@ -81,6 +81,9 @@ rm -rf ./feeds/packages/net/transmission-web-control
 svn co  https://github.com/project-openwrt/packages-19.07/trunk/net/transmission-web-control feeds/packages/net/transmission-web-control
 # 添加feeds里的依赖包
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/feeds/packages/lang/python/Flask-RESTful feeds/packages/lang/python/Flask-RESTful
+# 升级netdata为master的版本1.20源码
+rm -rf ./feeds/packages/admin/netdata
+svn co https://github.com/openwrt/packages/trunk/admin/netdata feeds/packages/admin/netdata
 # 升级feeds中的exfat-nofuse源码
 rm -rf ./feeds/packages/kernel/exfat-nofuse
 svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
