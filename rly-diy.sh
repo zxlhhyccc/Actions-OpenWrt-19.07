@@ -70,8 +70,8 @@ wget -P ./feeds/luci/applications/luci-app-ttyd/luasrc/controller/ https://raw.g
 rm -f ./feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
 wget -P ./feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
 # 修改本人软路由型号
-rm -f ./feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
-wget -P ./feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
+rm -f ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
+wget -P ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/ https://github.com/zxlhhyccc/acc-imq-bbr/blob/master/19.07/feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
 # 防火墙添加FullCone NAT
 rm -f ./feeds/luci/applications/luci-app-firewall/htdocs/luci-static/resources/view/firewall/zones.js
 wget -P ./feeds/luci/applications/luci-app-firewall/htdocs/luci-static/resources/view/firewall/ https://raw.githubusercontent.com/project-openwrt/luci-19.07/master/applications/luci-app-firewall/htdocs/luci-static/resources/view/firewall/zones.js
