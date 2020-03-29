@@ -100,10 +100,9 @@ svn co  https://github.com/openwrt/packages/trunk/utils/cgroupfs-mount feeds/pac
 svn co  https://github.com/openwrt/packages/trunk/utils/libnetwork feeds/packages/utils/libnetwork
 svn co  https://github.com/openwrt/packages/trunk/utils/runc feeds/packages/utils/runc
 svn co  https://github.com/openwrt/packages/trunk/utils/tini feeds/packages/utils/tini
-# 添加feeds中的hplip依赖libcups改为cups
-rm -rf ./feeds/packages/utils/hplip/Makefile
-wget -P ./feeds/packages/utils/hplip/ https://raw.githubusercontent.com/project-openwrt/packages-19.07/master/utils/hplip/Makefile
+# 去除cups中的libcups
+rm -f ./packages/openwrt-package/ctcgfw/cups/Makefile
+wget -P ./packages/openwrt-package/ctcgfw/cups/ https://raw.githubusercontent.com/project-openwrt/openwrt-latest/master/package/ctcgfw/cups/Makefile
 # 删除feeds里的与已有的冲突源码包
 rm -rf ./feeds/packages/utils/syncthing
 rm -rf ./feeds/luci/applications/luci-app-ksmbd
-rm -rf ./feeds/packages/libs/libcups
