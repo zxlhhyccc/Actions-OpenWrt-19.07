@@ -43,6 +43,9 @@ rm -rf ./package/network/utils/iptables
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/package/network/utils/iptables package/network/utils/iptables
 rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/package/network/services/uhttpd package/network/services/uhttpd
+# 添加openssl1.1.1e的200补丁
+rm -rf ./package/libs/openssl
+svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/package/libs/openssl package/libs/openssl
 # 添加procd的uajial补丁去除系统日志错误
 # rm -rf ./package/system/procd
 # svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/package/system/procd package/system/procd
