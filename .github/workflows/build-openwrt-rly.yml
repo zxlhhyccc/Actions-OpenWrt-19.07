@@ -72,6 +72,7 @@ jobs:
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_SH
+        chmod +x $DIY_SH-NODE
         cd openwrt
         ../$DIY_SH
         ../$DIY_SH-NODE
