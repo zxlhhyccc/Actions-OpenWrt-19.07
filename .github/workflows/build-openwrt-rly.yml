@@ -26,7 +26,8 @@ env:
   REPO_BRANCH: openwrt-19.07
   CONFIG_FILE: rly.config
   DIY_SH: rly-diy.sh
-  SSH_ACTIONS: false
+  DIY_SH-NODE: rly-diy-node.sh
+  SSH_ACTIONS: true
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   TZ: Asia/Shanghai
@@ -73,6 +74,7 @@ jobs:
         chmod +x $DIY_SH
         cd openwrt
         ../$DIY_SH
+        ../$DIY_SH-NODE
         
     - name: Restart Update Install feeds
       run: |

@@ -43,9 +43,6 @@ rm -rf ./package/network/utils/iptables
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/package/network/utils/iptables package/network/utils/iptables
 rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/package/network/services/uhttpd package/network/services/uhttpd
-# 添加openssl1.1.1e的200补丁
-rm -rf ./package/libs/openssl
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/package/libs/openssl package/libs/openssl
 # 添加procd的uajial补丁去除系统日志错误
 # rm -rf ./package/system/procd
 # svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/package/system/procd package/system/procd
@@ -61,6 +58,7 @@ rm -f ./target/linux/generic/config-4.14
 wget -P ./target/linux/generic/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/target/linux/generic/config-4.14
 rm -f ./target/linux/x86/Makefile
 wget -P ./target/linux/x86/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/target/linux/x86/Makefile
+wget -P ./target/linux/x86/patches-4.14/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/target/linux/x86/patches-4.14/900-x86-Enable-fast-strings-on-Intel-if-BIOS-hasn-t-already.patch
 # 添加upx压缩
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/tools/ucl tools/ucl
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/tools/upx tools/upx
@@ -98,8 +96,8 @@ svn co  https://github.com/openwrt/packages/trunk/utils/libnetwork feeds/package
 svn co  https://github.com/openwrt/packages/trunk/utils/runc feeds/packages/utils/runc
 svn co  https://github.com/openwrt/packages/trunk/utils/tini feeds/packages/utils/tini
 # 去除cups中的libcups
-rm -f ./packages/openwrt-package/ctcgfw/cups/Makefile
-wget -P ./packages/openwrt-package/ctcgfw/cups/ https://raw.githubusercontent.com/project-openwrt/openwrt-latest/master/package/ctcgfw/cups/Makefile
+# rm -f ./packages/openwrt-package/ctcgfw/cups/Makefile
+# wget -P ./packages/openwrt-package/ctcgfw/cups/ https://raw.githubusercontent.com/project-openwrt/openwrt-latest/master/package/ctcgfw/cups/Makefile
 # 删除feeds里的与已有的冲突源码包
 rm -rf ./feeds/packages/utils/syncthing
 rm -rf ./feeds/luci/applications/luci-app-ksmbd
