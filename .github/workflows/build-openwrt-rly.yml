@@ -75,7 +75,6 @@ jobs:
         chmod +x $DIY_NODE_SH
         cd openwrt
         ../$DIY_SH
-        cd openwrt
         ../$DIY_NODE_SH
         
     - name: Restart Update Install feeds
