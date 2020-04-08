@@ -71,19 +71,16 @@ wget -P ./feeds/luci/applications/luci-app-ttyd/luasrc/controller/ https://raw.g
 # 去除feeds中的material主题多余固件名
 rm -f ./feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
 wget -P ./feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
-# 修改本人软路由型号
-rm -f ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
-wget -P ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/ https://github.com/zxlhhyccc/acc-imq-bbr/blob/master/19.07/feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
 # 防火墙添加FullCone NAT
-rm -f ./feeds/luci/applications/luci-app-firewall/htdocs/luci-static/resources/view/firewall/zones.js
-wget -P ./feeds/luci/applications/luci-app-firewall/htdocs/luci-static/resources/view/firewall/ https://raw.githubusercontent.com/project-openwrt/luci-19.07/master/applications/luci-app-firewall/htdocs/luci-static/resources/view/firewall/zones.js
-rm -f ./feeds/luci/applications/luci-app-firewall/po/zh_Hans/firewall.po
-wget -P ./feeds/luci/applications/luci-app-firewall/po/zh_Hans/ https://raw.githubusercontent.com/project-openwrt/luci-19.07/master/applications/luci-app-firewall/po/zh_Hans/firewall.po
+rm -rf ./feeds/luci/applications/luci-app-firewall
+svn co  https://github.com/project-openwrt/luci/branches/openwrt-19.07/applications/luci-app-firewall feeds/luci/applications/luci-app-firewall
 # 更新feeds中的transmission源码依赖
 rm -rf ./feeds/luci/applications/luci-app-transmission
-svn co  https://github.com/project-openwrt/luci-19.07/trunk/applications/luci-app-transmission feeds/luci/applications/luci-app-transmission
+svn co  https://github.com/project-openwrt/luci/branches/openwrt-19.07/applications/luci-app-transmission feeds/luci/applications/luci-app-transmission
 rm -rf ./feeds/packages/net/transmission-web-control
-svn co  https://github.com/project-openwrt/packages-19.07/trunk/net/transmission-web-control feeds/packages/net/transmission-web-control
+svn co  https://github.com/project-openwrt/packages/brsnches/openwrt-19.07/net/transmission-web-control feeds/packages/net/transmission-web-control
+rm -rf ./feeds/packages/net/transmission
+svn co  https://github.com/project-openwrt/packages/brsnches/openwrt-19.07/net/transmission feeds/packages/net/transmission
 # 修改sqm-scripts汉化help
 rm -rf ./feeds/packages/net/sqm-scripts
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/feeds/packages/net/sqm-scripts feeds/packages/net/sqm-scripts
