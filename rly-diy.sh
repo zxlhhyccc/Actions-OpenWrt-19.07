@@ -78,9 +78,9 @@ svn co  https://github.com/project-openwrt/luci/branches/openwrt-19.07/applicati
 rm -rf ./feeds/luci/applications/luci-app-transmission
 svn co  https://github.com/project-openwrt/luci/branches/openwrt-19.07/applications/luci-app-transmission feeds/luci/applications/luci-app-transmission
 rm -rf ./feeds/packages/net/transmission-web-control
-svn co  https://github.com/project-openwrt/packages/brsnches/openwrt-19.07/net/transmission-web-control feeds/packages/net/transmission-web-control
+svn co  https://github.com/project-openwrt/packages/branches/openwrt-19.07/net/transmission-web-control feeds/packages/net/transmission-web-control
 rm -rf ./feeds/packages/net/transmission
-svn co  https://github.com/project-openwrt/packages/brsnches/openwrt-19.07/net/transmission feeds/packages/net/transmission
+svn co  https://github.com/project-openwrt/packages/branches/openwrt-19.07/net/transmission feeds/packages/net/transmission
 # 修改sqm-scripts汉化help
 rm -rf ./feeds/packages/net/sqm-scripts
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/feeds/packages/net/sqm-scripts feeds/packages/net/sqm-scripts
