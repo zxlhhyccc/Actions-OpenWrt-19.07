@@ -62,8 +62,8 @@ svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/tools/upx tools/upx
 rm -f ./tools/Makefile
 wget -P ./tools/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/tools/Makefile
 # 将tty、ksmd所在服务目录改到系统、网络存储目录
-sed -i 's/services/nas/g' feeds/luci/applications/luci-app-ksmbd/root/usr/share/luci/menu.d/luci-app-ksmbd.json
-sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
+sed -i 's/services/nas/g' feeds/luci/applications/luci-app-ksmbd/luasrc/controller/ksmbd.lua
+sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/luasrc/controller/ttyd.lua
 # 去除feeds中的material主题多余固件名
 sed -i 's#boardinfo.hostname or "?"#""#g' feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
 # 修改transmission依赖
