@@ -7,12 +7,6 @@
 #=================================================
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
-# 添加插件
-# svn co https://github.com/zxlhhyccc/bf-package/trunk/ctcgfw package/ctcgfw
-# svn co https://github.com/zxlhhyccc/bf-package/trunk/lean package/lean
-# svn co https://github.com/zxlhhyccc/bf-package/trunk/lienol package/lienol
-# svn co https://github.com/zxlhhyccc/bf-package/trunk/ntlf9t package/ntlf9t
-# svn co https://github.com/zxlhhyccc/bf-package/trunk/zxlhhyccc package/zxlhhyccc
 # 添加默认编译包
 rm -f ./include/target.mk
 wget -P ./include/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/include/target.mk
@@ -27,8 +21,7 @@ rm -f ./package/kernel/linux/modules/netsupport.mk
 wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/package/kernel/linux/modules/netsupport.mk
 rm -f ./package/kernel/linux/modules/crypto.mk
 wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/package/kernel/linux/modules/crypto.mk
-rm -f ./package/kernel/linux/files/sysctl-nf-conntrack.conf
-wget -P ./package/kernel/linux/files/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/package/kernel/linux/files/sysctl-nf-conntrack.conf
+sed -i 's/16384/65536/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 # 修改network中防火墙等源码包
 rm -rf ./package/network/config/firewall
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/package/network/config/firewall package/network/config/firewall
@@ -36,6 +29,16 @@ rm -rf ./package/network/utils/iptables
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/package/network/utils/iptables package/network/utils/iptables
 rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/package/network/services/uhttpd package/network/services/uhttpd
+# 修改feeds里的luci-app-firewall加速开关等源码包
+wget -P ./feeds/luci/applications/luci-app-firewall/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/feeds/luci/applications/luci-app-firewall/patches/001-luci-app-firewall-Enable-FullCone-NAT.patch
+pushd feeds/luci/applications/luci-app-firewall
+patch -p1 < 001-luci-app-firewall-Enable-FullCone-NAT.patch
+popd
+# 添加wifi的MU-MIMO功能
+wget -P ./feeds/luci/modules/luci-mod-network/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/feeds/luci/modules/luci-mod-network/patches/001-wifi-add-MU-MIMO-option.patch
+pushd feeds/luci/modules/luci-mod-network
+patch -p1 < 001-wifi-add-MU-MIMO-option.patch
+popd
 # 添加procd的uajial补丁去除系统日志错误
 # rm -rf ./package/system/procd
 # svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/package/system/procd package/system/procd
@@ -58,30 +61,41 @@ svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/tools/ucl tools/ucl
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/tools/upx tools/upx
 rm -f ./tools/Makefile
 wget -P ./tools/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/tools/Makefile
-# 将tty所在服务菜单改到系统菜单
-rm -f ./feeds/luci/applications/luci-app-ttyd/luasrc/controller/ttyd.lua
-wget -P ./feeds/luci/applications/luci-app-ttyd/luasrc/controller/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/feeds/luci/applications/luci-app-ttyd/luasrc/controller/ttyd.lua
+# 将tty、ksmd所在服务目录改到系统、网络存储目录
+sed -i 's/services/nas/g' feeds/luci/applications/luci-app-ksmbd/root/usr/share/luci/menu.d/luci-app-ksmbd.json
+sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
 # 去除feeds中的material主题多余固件名
-rm -f ./feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
-wget -P ./feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
-# 防火墙添加FullCone NAT
-rm -rf ./feeds/luci/applications/luci-app-firewall
-svn co  https://github.com/project-openwrt/luci/branches/openwrt-19.07/applications/luci-app-firewall feeds/luci/applications/luci-app-firewall
-# 更新feeds中的transmission源码依赖
-rm -rf ./feeds/luci/applications/luci-app-transmission
-svn co  https://github.com/project-openwrt/luci/branches/openwrt-19.07/applications/luci-app-transmission feeds/luci/applications/luci-app-transmission
-rm -rf ./feeds/packages/net/transmission-web-control
-svn co  https://github.com/project-openwrt/packages/branches/openwrt-19.07/net/transmission-web-control feeds/packages/net/transmission-web-control
-rm -rf ./feeds/packages/net/transmission
-svn co  https://github.com/project-openwrt/packages/branches/openwrt-19.07/net/transmission feeds/packages/net/transmission
+sed -i 's#boardinfo.hostname or "?"#""#g' feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
+# 修改transmission依赖
+wget -P ./feeds/packages/net/transmission-web-control/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/feeds/packages/net/transmission-web-control/patches/001-transmission-web-control-dbengine.patch
+pushd feeds/packages/net/transmission-web-control
+patch -p1 < 001-transmission-web-control-dbengine.patch
+popd
+wget -P ./feeds/luci/applications/luci-app-transmission/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/feeds/luci/applications/luci-app-transmission/patches/001-luci-app-transmission-with-dbengine.patch
+pushd feeds/luci/applications/luci-app-transmission
+patch -p1 < 001-luci-app-transmission-with-dbengine.patch
+popd
 # 修改sqm-scripts汉化help
 rm -rf ./feeds/packages/net/sqm-scripts
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/feeds/packages/net/sqm-scripts feeds/packages/net/sqm-scripts
 # 添加feeds里的依赖包
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/feeds/packages/lang/python/Flask-RESTful feeds/packages/lang/python/Flask-RESTful
-# 升级netdata为master的版本1.20源码
-rm -rf ./feeds/packages/admin/netdata
-svn co https://github.com/openwrt/packages/trunk/admin/netdata feeds/packages/admin/netdata
+# 添加netdata显示中文日期补丁及升级到1.22.1
+sed -i 's/1.19.0/1.22.1/g' feeds/packages/admin/netdata/Makefile
+sed -i 's/007656f639d3544698af503f35550aeb4d4d5a06b81801bf5acf4ac21db68f6e/6efd785eab82f98892b4b4017cadfa4ce1688985915499bc75f2f888765a3446/g' feeds/packages/admin/netdata/Makefile
+wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/feeds/packages/admin/netdata/patches/002-netdata-with-dbengine.patch
+pushd feeds/packages/admin/netdata
+patch -p1 < 002-netdata-with-dbengine.patch
+popd
+wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/feeds/packages/admin/netdata/patches/003-netdata-init-with-TZ.patch
+pushd feeds/packages/admin/netdata
+patch -p1 < 003-netdata-init-with-TZ.patch
+popd
+wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/19.07/feeds/packages/admin/netdata/patches/004-netdata-with-config.patch
+pushd feeds/packages/admin/netdata
+patch -p1 < 004-netdata-with-config.patch
+popd
+svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/libs/libJudy feeds/packages/libs/libJudy
 # 升级feeds中的exfat-nofuse源码
 rm -rf ./feeds/packages/kernel/exfat-nofuse
 svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
